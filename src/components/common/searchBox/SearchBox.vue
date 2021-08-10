@@ -1,10 +1,10 @@
 <template>
   <div class="searchBox">
     <div class="searchImg">
-      <img src="../../../assets/img/搜索.png">
+      <img src="../../../assets/img/搜索.png" @click="search">
     </div>
     
-    <input type="password">
+    <input type="text" ref="content">
   </div>
 </template>
 
@@ -17,7 +17,13 @@ export default {
     }
   },
   methods: {
-
+    search(){
+      let content = this.$refs.content.value
+      let baseUrl = 'https://www.baidu.com'
+      let url = baseUrl+'/s?wd='+content
+      console.log(url);
+      window.location.href = url
+    }
   },
 }
 </script>
@@ -40,12 +46,16 @@ export default {
   }
   .searchBox input{
     width: calc(100% - 4rem);
-    height: 1.5rem;
+    height: 1rem;
     display: inline;
     position: absolute;
     left: 2rem;
-    top: calc((100% - 1.5rem)/2);
+    top: calc((100% - 1rem)/2);
     border-radius: 10px;
-    background-color: grey;
+    background-color: rgb(187, 187, 187);
+    outline: none;
+  }
+  .searchBox input:focus{
+    background-color: white;
   }
 </style>

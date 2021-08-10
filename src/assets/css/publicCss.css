@@ -1,0 +1,58 @@
+@keyframes navmove{
+  0%{
+    transform: translate(200px);
+  }
+  
+  70%{
+    transform: translate(-100px);
+  }
+  100%{
+    transform: translate(0px);
+  }
+}
+@keyframes Ymove{
+  0%{
+    transform: translateY(300px);
+  }
+  100%{
+    transform: translateY(0px);
+  }
+}
+@keyframes turn{
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+.navbar{
+  height: 60px;
+  animation: navmove 1s;
+}
+.leftButton{
+  height: 100%;
+  position: relative;
+  
+}
+
+.leftButton img{
+  position: absolute;
+  top:calc((100% - 32px)/2);
+  left: 20px;
+  
+  
+}
+.turnAnime {
+  animation: turn 1s;
+}
+.avatar{
+  height: 100%;
+  width: 30%;
+  
+  display: inline-block;
+  position: relative;
+}
+.searchbox{
+  flex: 1;
+}

@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="blog">
     <nav-bar class="navbar">
 
       <template v-slot:left >
@@ -18,27 +18,33 @@
       </template>
 
     </nav-bar>
+
     <div class="background">
-      <img src="../../assets/img/89464955_p0_master1200.jpg">
+      <img src="../../assets/img/91600950_p0.jpg">
     </div>
-    <home-post-card class="homePostCard"></home-post-card>
-    
+
     <leftmenu :isPull="isPull"></leftmenu>
 
-    <clock></clock>
+    <blog-box></blog-box>
+    <blog-button @click="commitBtnClick"></blog-button>
+    <blog-commit :isActive='isActive'></blog-commit>
   </div>
 </template>
 
 <script>
 import navBar from '../../components/common/navBar/navBar.vue'
+
 import navBarItem from '../../components/content/navBarItem/navBarItem.vue'
 import avatar from '../../components/common/avatar/Avatar.vue'
 import searchBox from '../../components/common/searchBox/SearchBox.vue'
-import homePostCard from '../home/childComponents/homePostCard.vue'
+import blogBox from './childComponents/BlogBox.vue'
+import blogButton from './childComponents/BlogButton.vue'
+import blogCommit from './childComponents/BlogCommit.vue'
+
 import leftmenu from '../../components/content/leftMenu/LeftMenu.vue'
-import clock from '../../components/common/clock/Clock.vue'
 
 import leftButtonAnime from '../../common/leftButtonAnime'
+
 
 export default {
   mixins:[leftButtonAnime],
@@ -46,24 +52,21 @@ export default {
   data () {
     return {
       
-      
     }
+  },
+  methods: {
+    
   },
   components:{
     navBar,
     navBarItem,
     avatar,
     searchBox,
-    homePostCard,
     leftmenu,
-    clock
-  },
-  methods: {
-    
-    
+    blogBox,
+    blogButton,
+    blogCommit,
   }
-
-  
 }
 </script>
 
@@ -71,14 +74,6 @@ export default {
   @import url('../../assets/css/publicCss.css');
 </style>
 <style scoped>
-
-
-
-  .home{
-    height: 100vh;
-    width: 100vw;
-    overflow: scroll;
-  }
   .background{
     height: 600px;
     overflow: hidden;
@@ -89,9 +84,5 @@ export default {
   }
   .background img{
     width: 100%;
-  }
-  
-  .homePostCard{
-    animation: Ymove 1s;
   }
 </style>
