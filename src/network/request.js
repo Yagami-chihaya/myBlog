@@ -11,4 +11,12 @@ export function getInfo(config){
   console.log(instance(config));
   return instance(config)
 }
-
+export function getData(config){
+  const instance = axios.create({
+    baseURL:'http://localhost:3000',
+    timeout:2000,
+    httpAgent:''
+  })
+  instance.interceptors.request.use(config=>config,err=>{console.log(err);})
+  return instance(config)
+}

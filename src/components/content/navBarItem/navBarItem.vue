@@ -27,7 +27,7 @@ export default {
         communication:{
           title:'技术分享',
           urlImg:require('../../../assets/img/ybb.png'),
-          router:'communication'
+          router:'share'
         },
         aboutMe:{
           title:'关于我',

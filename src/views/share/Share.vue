@@ -1,6 +1,6 @@
 <template>
-  <div class="blog">
-    <nav-bar class="navbar">
+  <div class="share">
+    <nav-bar class="navbar" >
 
       <template v-slot:left >
         <div class="leftButton">
@@ -19,29 +19,25 @@
 
     </nav-bar>
 
-    <div class="background">
-      <img src="../../assets/img/91600950_p0.jpg">
-    </div>
-
     <leftmenu :isPull="isPull"></leftmenu>
+    <share-box></share-box>
+    
 
-    <blog-box></blog-box>
-    <blog-button @click="commitBtnClick"></blog-button>
-    <blog-commit :isActive='isActive'></blog-commit>
+    <div class="background">
+      <img src="../../assets/img/91512300_p0_master1200.jpg">
+    </div>
   </div>
 </template>
 
 <script>
 import navBar from '../../components/common/navBar/navBar.vue'
-
 import navBarItem from '../../components/content/navBarItem/navBarItem.vue'
 import avatar from '../../components/common/avatar/Avatar.vue'
 import searchBox from '../../components/common/searchBox/SearchBox.vue'
-import blogBox from './childComponents/BlogBox.vue'
-import blogButton from './childComponents/BlogButton.vue'
-import blogCommit from './childComponents/BlogCommit.vue'
-
 import leftmenu from '../../components/content/leftMenu/LeftMenu.vue'
+
+import shareBox from './childComponents/ShareBox.vue'
+
 
 import leftButtonAnime from '../../common/leftButtonAnime'
 
@@ -55,7 +51,7 @@ export default {
     }
   },
   methods: {
-    
+
   },
   components:{
     navBar,
@@ -63,12 +59,12 @@ export default {
     avatar,
     searchBox,
     leftmenu,
-    blogBox,
-    blogButton,
-    blogCommit,
+    shareBox,
+    
   }
 }
 </script>
+
 
 <style type='text/css'>
   @import url('../../assets/css/publicCss.css');

@@ -1,6 +1,6 @@
 <template>
   <div class="blogButton">
-    <div class="commitBtn" @click="commitBtnClick">发条Blog</div>
+    <div class="commitBtn" @click="commitBtnClick">发个Blog</div>
   </div>
 </template>
 
@@ -26,7 +26,7 @@ export default {
   .blogButton{
     position: fixed;
     right: 10%;
-    bottom: 0;
+    bottom: 5%;
     width: 19%;
     height: 80%;
     margin-left: 60%;
