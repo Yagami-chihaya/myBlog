@@ -17,22 +17,22 @@ export default {
         home:{
           title:'首页',
           urlImg:require('../../../assets/img/哇.png'),
-          router:'home'
+          router:'/home'
         },
         blog:{
           title:'我的博客',
           urlImg:require('../../../assets/img/给心心.png'),
-          router:'blog'
+          router:'/blog'
         },
         communication:{
           title:'技术分享',
           urlImg:require('../../../assets/img/ybb.png'),
-          router:'share'
+          router:'/share'
         },
         aboutMe:{
           title:'关于我',
           urlImg:require('../../../assets/img/经典大头.png'),
-          router:'aboutMe'
+          router:'/aboutMe'
         }
       },
     }

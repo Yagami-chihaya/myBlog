@@ -1,6 +1,6 @@
 <template>
   <div class="shareTextItem">
-    <span class="title">📄 {{textData.title}}</span>
+    <span class="title" @click="itemClick">📄 {{textData.title}}</span>
     <span class="time">创建于：{{textData.time}}</span>
   </div>
 </template>
@@ -21,7 +21,9 @@ export default {
     },
   },
   methods: {
-
+    itemClick(){
+      this.$router.push("/text/"+this.textData.id)
+    }
   },
   created(){
     
@@ -40,6 +42,7 @@ export default {
   .title{
     color: white;
     font-size: 20px;
+    cursor: pointer;
   }
   .time{
     position: absolute;

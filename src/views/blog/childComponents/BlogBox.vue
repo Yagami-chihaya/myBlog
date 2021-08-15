@@ -14,7 +14,7 @@
         看着asoul，我笑了，笑的那么温柔，笑的那么洒脱，笑的那么释然。-->
         <p class="text">{{item.msg}}​</p>
         <p class="date">编辑于:{{item.time}}</p>
-        <p class="readBtn">阅读文章</p>
+        <p class="readBtn" @click="itemClick(item.id)">阅读文章</p>
       </div>
       
     </div>
@@ -42,10 +42,9 @@ export default {
         this.$store.state.userTextData.splice(index,1)
         this.isDel = false
       }, 300);
-
-      
-      
-      
+    },
+    itemClick(iid){
+      this.$router.push('/text/'+iid) 
     }
     
   },

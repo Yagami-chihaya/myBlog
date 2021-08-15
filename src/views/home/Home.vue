@@ -34,11 +34,13 @@ import navBar from '../../components/common/navBar/navBar.vue'
 import navBarItem from '../../components/content/navBarItem/navBarItem.vue'
 import avatar from '../../components/common/avatar/Avatar.vue'
 import searchBox from '../../components/common/searchBox/SearchBox.vue'
-import homePostCard from '../home/childComponents/homePostCard.vue'
 import leftmenu from '../../components/content/leftMenu/LeftMenu.vue'
+import leftButtonAnime from '../../common/leftButtonAnime'
+
+import homePostCard from '../home/childComponents/homePostCard.vue'
+
 import clock from '../../components/common/clock/Clock.vue'
 
-import leftButtonAnime from '../../common/leftButtonAnime'
 
 export default {
   mixins:[leftButtonAnime],
@@ -54,8 +56,8 @@ export default {
     navBarItem,
     avatar,
     searchBox,
-    homePostCard,
     leftmenu,
+    homePostCard,
     clock
   },
   methods: {

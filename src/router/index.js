@@ -25,7 +25,13 @@ const routes = [
     path:'/aboutMe',
     name:'aboutMe',
     component:()=>import('../views/aboutMe/AboutMe.vue')
-  }
+  },
+  {
+    path:'/text/:iid',
+    name:'text',
+    component:()=>import('../views/text/Text.vue')
+  },
+  
 ]
 
 const router = createRouter({
