@@ -1,14 +1,14 @@
 <template>
-  <div class="leftmenu" :class="{backAnime:$store.state.time>=1&&!isBack,pullAnime:isBack||isPull}">
+  <div class="leftmenu" :class="{backAnime:$store.state.time>=1&&!isBack,pullAnime:(isBack||isPull)&&$store.state.time>=1}">
     <div class="real">
       <img src="../../../assets/img/一眼真.png">
       <span>一眼真~</span>
     </div>
     <div class="menuList">
-      <p class="menuItem">首页</p>
-      <p class="menuItem">我的博客</p>
-      <p class="menuItem">技术分享</p>
-      <p class="menuItem">关于我</p>
+      <p class="menuItem" @click="itemClick('/home')">首页</p>
+      <p class="menuItem" @click="itemClick('/blog')">我的博客</p>
+      <p class="menuItem" @click="itemClick('/share')">技术分享</p>
+      <p class="menuItem" @click="itemClick('/aboutMe')">关于我</p>
     </div>
     <div class="back" @click="isBackToggle">
       <img src="../../../assets/img/返回.png" :style="isBack?{transform: 'rotate(-180deg)'}:{}">
@@ -37,6 +37,12 @@ export default {
       console.log(this.$store.state.time);
       this.isBack = !this.isBack
       
+    },
+    itemClick(router){
+      this.$router.replace(router)
+      this.$store.state.time = 0   //清空左菜单按钮点击次数，防止重复加载左菜单回退动画
+      this.isPull = false
+      console.log(this.isPull);
     }
   },
   

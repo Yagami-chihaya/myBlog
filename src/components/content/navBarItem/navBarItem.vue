@@ -70,7 +70,7 @@ export default {
     border-right: none;
   }
   .item:hover{
-    background-color: rgb(252, 130, 160);
+    background-color: rgba(255, 255, 255, 0.521);
   }
   .item img{
     width:40px;

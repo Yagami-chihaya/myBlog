@@ -11,13 +11,14 @@ const leftButtonAnime = {
       }, 500);
     },
     getLeftMenu(){
+      
       this.isPull = true
       this.$store.state.time++
       console.log(this.$store.state.time);
       console.log(this.isPull);
       setTimeout(() => {
         this.isPull = false
-      }, 3000);
+      }, 2000);
     }
   }
 }
