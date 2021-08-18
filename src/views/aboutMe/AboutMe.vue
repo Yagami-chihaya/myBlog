@@ -80,7 +80,7 @@ export default {
   .aboutme{
     width: 100vw;
     height: 100vh;
-    
+    overflow: hidden;
     background: rgb(241, 241, 241);
     
   }
