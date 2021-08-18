@@ -70,6 +70,7 @@ export default {
   @import url('../../assets/css/publicCss.css');
 </style>
 <style scoped>
+  
   .background{
     height: 100%;
     overflow: hidden;

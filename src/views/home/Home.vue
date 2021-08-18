@@ -63,6 +63,9 @@ export default {
   methods: {
     
     
+  },
+  created(){
+    console.log("被创建了");
   }
 
   
