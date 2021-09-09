@@ -23,17 +23,13 @@
 
 <script>
 import changeRecommend from './ChangeRecommend.vue'
+import {getTextData} from '../../../network/userData.js'
 
 export default {
   el: '',
   data () {
     return {
       textItemData:{
-        id:"text01",
-        title:"嘉然の爱犬",
-        msg:"Asoul配lovelive，就像鹅肝配果酒，我一听lovelive后，灵魂就开始激荡，嘴唇止不住的颤抖，当我又听到了asoul，我的膝盖终究是软了，扑通跪了下去，我感到一股上流和高雅的情感狂暴鸿儒了我脆弱的心灵。泪，流了下来。原来过去二十年里，没有asoul和lovelive的人生是那么的悲惨。而拥有了asoul和lovelive的我，现在又是那么的幸福，玩着lovelive，看着asoul，我笑了，笑的那么温柔，笑的那么洒脱，笑的那么释然",
-        cover:"https://wx2.sinaimg.cn/mw690/005QPr5Ngy1gtgc8vauf2j60xc0irjzj02.jpg",
-        time:"2021/3/7 下午8:00:00"
         
       },
       isShow:false
@@ -56,6 +52,12 @@ export default {
   },
   components:{
     changeRecommend
+  },
+  created(){
+    getTextData().then(res=>{
+      
+      this.textItemData = res.data[0]
+    })
   }
 }
 </script>
@@ -99,7 +101,12 @@ export default {
     border-radius: 10px;
   }
   .cover img{
+    position: absolute;
     width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    
   }
   .rightContent{
     position: absolute;

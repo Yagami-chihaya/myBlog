@@ -1,7 +1,7 @@
 <template>
   <div class="sharetoggle" @click="itemClick">
     <span class="video" :class="{active:isActived}">Video</span>
-    <span class="img" :class="{active:!isActived}">Img</span>
+    <span class="img" :class="{active:!isActived}">Text</span>
   </div>
 </template>
 

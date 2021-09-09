@@ -26,8 +26,9 @@
       <back class="back"></back>
       <div class="textContent">
         <p class="title">{{textItem.title}}</p>
-        <span class="date">{{textItem.time}}</span>
+        
         <p class="content">{{textItem.msg}}</p>
+        <span class="date">{{textItem.time}}</span>
       </div>
       
     </div>
@@ -127,6 +128,7 @@ export default {
     height: 75%;
     top: 18%;
     left: 10%;
+    
     overflow: scroll;
   }
   .textBox>div::-webkit-scrollbar{
@@ -134,16 +136,17 @@ export default {
   }
   .title{
     
-
+    margin-bottom: 3%;
     font-size: 32px;
     font-weight: bolder;
     color: white;
     text-shadow: 2px 0px 1px #e799b0,-2px 0px 1px #e799b0,0px 2px 1px #e799b0,0px -2px 1px #e799b0;
   }
   .date{
-    position: absolute;
-    bottom: 0;
-    right: 0;
+    margin-top: 3%;
+    display: block;
+    width: 100%;
+    text-align: right;
     
   }
   .content{

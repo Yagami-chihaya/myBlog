@@ -1,184 +1,152 @@
 {
-  "userTextData":[
-    { 
-      "id":"text01",
-      "title":"嘉然の爱犬",
-      "msg":"Asoul配lovelive，就像鹅肝配果酒，我一听lovelive后，灵魂就开始激荡，嘴唇止不住的颤抖，当我又听到了asoul，我的膝盖终究是软了，扑通跪了下去，我感到一股上流和高雅的情感狂暴鸿儒了我脆弱的心灵。泪，流了下来。原来过去二十年里，没有asoul和lovelive的人生是那么的悲惨。而拥有了asoul和lovelive的我，现在又是那么的幸福，玩着lovelive，看着asoul，我笑了，笑的那么温柔，笑的那么洒脱，笑的那么释然",
-      "cover":"https://wx2.sinaimg.cn/mw690/005QPr5Ngy1gtgc8vauf2j60xc0irjzj02.jpg",
-      "time":"2021/3/7 下午8:00:00"
+  "userTextData": [
+    {
+      "id": "text01",
+      "title": "个人对Vue生命周期的理解",
+      "msg":"平时写代码的时候根本不会去在意这个生命周期，一般就直接拿着用了。最近开始补基础回头细看一下文档和文章，便有了自己的一些收获：一.new Vue()创造一个vue实例的时候会调用三个方法：initLifecycle(),initEvents(),initRender(），分别代表了初始化生命周期、初始化事件和初始化createElement函数。而keep-alive中的_inactive属性就是initLifecycle()方法定义的。二.组件被创建前会先定义data和methods，并用observe将数据拦截的同时配置观察者watcher监视数据后续的变化。实现响应式开发三.template模板、el、vue文件都会被转换成render()函数四.render()函数渲染成DOM前，会开启一个虚拟DOM用于检测上次开启的虚拟DOM数据是否与这次的相同。五.当数据发生变化时，会开启一个新的虚拟DOM。新老虚拟DOM会进行对比数据进行计算，再渲染到DOM上六.完成销毁",
+      "cover": "https://wx2.sinaimg.cn/mw690/005QPr5Ngy1gtgc8vauf2j60xc0irjzj02.jpg",
+      "time": "2021/3/7 下午8:00:00"
     },
     {
-      "id":"text02",
-      "title":"嘉然",
-      "msg":"Asoul配lovelive，就像鹅肝配果酒，我一听lovelive后，灵魂就开始激荡，嘴唇止不住的颤抖，当我又听到了asoul，我的膝盖终究是软了，扑通跪了下去，我感到一股上流和高雅的情感狂暴鸿儒了我脆弱的心灵。泪，流了下来。原来过去二十年里，没有asoul和lovelive的人生是那么的悲惨。而拥有了asoul和lovelive的我，现在又是那么的幸福，玩着lovelive，看着asoul，我笑了，笑的那么温柔，笑的那么洒脱，笑的那么释然",
-      "cover":"https://wx2.sinaimg.cn/mw690/005QPr5Ngy1gtgc8vauf2j60xc0irjzj02.jpg",
-      "time":"2021/3/7 下午8:00:00"
+      "id": "text02",
+      "title": "Vue的响应式原理的个人理解",
+      "msg": "vue的响应式会根据数据的变化更新视图,简化了开发时麻烦的手动更新操作，vue的响应式是由Object.defineProperty()和观察者模式组成的。那么两者的作用是什么？一.Object.defineProperty()Object.defineProperty()里的回调包括两个参数get和set,当被监听的对象的属性发生变化会调用set的回调，而获取被监听对象的属性则会调用get的回调。这便是响应式原理如何获取数据变化的原因VUE给data里所有的属性加上set,get这个过程就叫做Reactive化。二.观察者模式先举一个例子，假如你是一个知名up主，每当你更新了一个视频想要别人去看的时候，你总不可能把他们一个个叫他们过来看吧。于是你就可以让他们关注你，等你视频更新的时候发布一个动态提示他们去看，这就类似于观察者模式。附上一张响应式原理图其中这里的Dep就是一个观察者类，每一个data的属性都会有一个dep对象。当getter调用的时候，去dep里注册函数",
+      "cover": "https://wx3.sinaimg.cn/mw1024/005QPr5Ngy1gtgc8v9iuij60dw0dw75a02.jpg",
+      "time": "2021/3/7 下午8:00:00"
     },
     {
-      "id":"text03",
-      "title":"嘉然爱犬",
-      "msg":"Asoul配lovelive，就像鹅肝配果酒，我一听lovelive后，灵魂就开始激荡，嘴唇止不住的颤抖，当我又听到了asoul，我的膝盖终究是软了，扑通跪了下去，我感到一股上流和高雅的情感狂暴鸿儒了我脆弱的心灵。泪，流了下来。原来过去二十年里，没有asoul和lovelive的人生是那么的悲惨。而拥有了asoul和lovelive的我，现在又是那么的幸福，玩着lovelive，看着asoul，我笑了，笑的那么温柔，笑的那么洒脱，笑的那么释然",
-      "cover":"https://wx2.sinaimg.cn/mw690/005QPr5Ngy1gtgc8vauf2j60xc0irjzj02.jpg",
-      "time":"2021/3/7 下午8:00:00"
+      "id": "text03",
+      "title": "个人对keep-alive的理解",
+      "msg": "Question 1：那么keep-alive包裹的组件是在哪步渲染的呢？答案是:patch这个过程会将vnode(虚拟DOM)转换成真实DOM。并且keep-alive本身不会渲染成真正的DOM节点。因为在创建父子组件时，会根据父组件的abstract属性决定是否忽略该组件，而keep-alive中设置了abstract:true，所以keep-alive本身不会被渲染到DOM上。Question 2：keep-alive是如何进行缓存的？在patch阶段会执行createComponent()函数，不过我还不是太懂。大体的意思是首次渲染的时候vnode.componentInstance值为undefined，会跳过插入上次DOM到父节点的过程。当再次渲染时，vnode.componentInstance就是上一次虚拟DOM渲染的实例，插入到父节点中。Question 3：keep-alive的钩子函数原本vue组件会经过created到mounted直至最后过程destroyed。不过keep-alive改变了这点，mounted之前的过程（beforeCreate、created、mounted）全部失效，取而代之的是activated和deactivated。ps：这里我有个问题，keep-alive包裹的组件是何时销毁的呢？以上就是我对keep-alive的理解",
+      "cover": "https://wx4.sinaimg.cn/mw1024/005QPr5Ngy1gtgc8vn7o6j60ee0ee74g02.jpg",
+      "time": "2021/3/7 下午8:00:00"
+    },
+    {
+      "id": "text04",
+      "title": "原型链分析",
+      "msg": "Qu我们声明的构造函数或者类(es6)都会有prototype属性指向原型对象，而这个对象里存放了构造函数的方法等。当我们使用该构造函数创建实例时，那么实例也会有个__proto__属性也指向了这个原型对象。所以该构造函数的所有实例可以不用单独声明就能使用构造函数的方法。但其实原型对象也有自己的__proto__属性，那么它指向谁呢？当然是Object，但Object的__proto__属性指向谁呢？查看Object的__proto__等于null",
+      "cover": "https://wx4.sinaimg.cn/mw1024/005QPr5Ngy1gtgc8vn7o6j60ee0ee74g02.jpg",
+      "time": "2021/3/7 下午8:00:00"
     }
   ],
-  "video":[
+  "video": [
     {
-      "title":"最全最新Vue、Vuejs教程，从入门到精通",
-      "cover_url":"https://wx4.sinaimg.cn/mw1024/005QPr5Ngy1gtghmoi03bj60ak06o3yr02.jpg",
-      "date":"2020-2-18",
-      "view":"442.7万",
-      "favorite":"9.4万",
-      "author":"ilovecoding",
-      "url":"https://www.bilibili.com/video/BV15741177Eh"
+      "title": "最全最新Vue、Vuejs教程，从入门到精通",
+      "cover_url": "https://wx4.sinaimg.cn/mw1024/005QPr5Ngy1gtghmoi03bj60ak06o3yr02.jpg",
+      "date": "2020-2-18",
+      "view": "442.7万",
+      "favorite": "9.4万",
+      "author": "ilovecoding",
+      "url": "https://www.bilibili.com/video/BV15741177Eh"
     },
     {
-      "title":"黑马程序员Python教程_600集Python从入门到精通教程（懂中文就能学会）",
-      "cover_url":"https://wx2.sinaimg.cn/mw690/005QPr5Ngy1gtghmoktwwj60ak06ojrn02.jpg",
-      "date":"2017-9-5",
-      "view":"1006.1万",
-      "favorite":"61.8万",
-      "author":"黑马程序员",
-      "url":"https://www.bilibili.com/video/BV1ex411x7Em"
+      "title": "黑马程序员Python教程_600集Python从入门到精通教程（懂中文就能学会）",
+      "cover_url": "https://wx2.sinaimg.cn/mw690/005QPr5Ngy1gtghmoktwwj60ak06ojrn02.jpg",
+      "date": "2017-9-5",
+      "view": "1006.1万",
+      "favorite": "61.8万",
+      "author": "黑马程序员",
+      "url": "https://www.bilibili.com/video/BV1ex411x7Em"
     },
     {
-      "title":"「李南江」jQuery+Ajax从放弃到知根知底 - JQ基础+案例实战",
-      "cover_url":"https://wx4.sinaimg.cn/mw690/005QPr5Ngy1gtghmohuzij60ak06owf202.jpg",
-      "date":"2018-5-1",
-      "view":"77.6万",
-      "favorite":"2.7万",
-      "author":"李南江老师",
-      "url":"https://www.bilibili.com/video/BV17W41137jn"
+      "title": "「李南江」jQuery+Ajax从放弃到知根知底 - JQ基础+案例实战",
+      "cover_url": "https://wx4.sinaimg.cn/mw690/005QPr5Ngy1gtghmohuzij60ak06owf202.jpg",
+      "date": "2018-5-1",
+      "view": "77.6万",
+      "favorite": "2.7万",
+      "author": "李南江老师",
+      "url": "https://www.bilibili.com/video/BV17W41137jn"
     },
     {
-      "title":"【尚硅谷】JavaScript基础&实战丨JS入门到精通全套完整版",
-      "cover_url":"https://wx3.sinaimg.cn/mw690/005QPr5Ngy1gtghmof15oj60ak06ojrs02.jpg",
-      "date":"2018-4-3",
-      "view":"237.6万",
-      "favorite":"7.1万",
-      "author":"尚硅谷",
-      "url":"https://www.bilibili.com/video/BV1YW411T7GX"
+      "title": "【尚硅谷】JavaScript基础&实战丨JS入门到精通全套完整版",
+      "cover_url": "https://wx3.sinaimg.cn/mw690/005QPr5Ngy1gtghmof15oj60ak06ojrs02.jpg",
+      "date": "2018-4-3",
+      "view": "237.6万",
+      "favorite": "7.1万",
+      "author": "尚硅谷",
+      "url": "https://www.bilibili.com/video/BV1YW411T7GX"
     },
     {
-      "title":"2020年Python爬虫全套课程（学完可做项目）",
-      "cover_url":"https://wx1.sinaimg.cn/mw690/005QPr5Ngy1gtghmoh3g2j60ak06owez02.jpg",
-      "date":"2020-7-9",
-      "view":"82.3万",
-      "favorite":"6.3万",
-      "author":"路飞学城IT",
-      "url":"https://www.bilibili.com/video/BV1Yh411o7Sz"
+      "title": "2020年Python爬虫全套课程（学完可做项目）",
+      "cover_url": "https://wx1.sinaimg.cn/mw690/005QPr5Ngy1gtghmoh3g2j60ak06owez02.jpg",
+      "date": "2020-7-9",
+      "view": "82.3万",
+      "favorite": "6.3万",
+      "author": "路飞学城IT",
+      "url": "https://www.bilibili.com/video/BV1Yh411o7Sz"
     },
     {
-      "title":"在家没事干？10分钟拥有真正意义上属于自己的网站！网站搭建！",
-      "cover_url":"https://wx4.sinaimg.cn/mw690/005QPr5Ngy1gtghmog5rzj60ak06o0t402.jpg",
-      "date":"2020-1-31",
-      "view":"14.8万",
-      "favorite":"1.3万",
-      "author":"波西BrackRat",
-      "url":"https://www.bilibili.com/video/BV1D7411B7Yf"
+      "title": "在家没事干？10分钟拥有真正意义上属于自己的网站！网站搭建！",
+      "cover_url": "https://wx4.sinaimg.cn/mw690/005QPr5Ngy1gtghmog5rzj60ak06o0t402.jpg",
+      "date": "2020-1-31",
+      "view": "14.8万",
+      "favorite": "1.3万",
+      "author": "波西BrackRat",
+      "url": "https://www.bilibili.com/video/BV1D7411B7Yf"
     },
     {
-      "title":"尚硅谷Web前端ES6教程，涵盖ES6-ES11",
-      "cover_url":"https://wx1.sinaimg.cn/mw690/005QPr5Ngy1gtghmoh1jnj60ak06o0sy02.jpg",
-      "date":"2020-7-9",
-      "view":"30.9万",
-      "favorite":"1.5万",
-      "author":"尚硅谷",
-      "url":"https://www.bilibili.com/video/BV1uK411H7on"
+      "title": "尚硅谷Web前端ES6教程，涵盖ES6-ES11",
+      "cover_url": "https://wx1.sinaimg.cn/mw690/005QPr5Ngy1gtghmoh1jnj60ak06o0sy02.jpg",
+      "date": "2020-7-9",
+      "view": "30.9万",
+      "favorite": "1.5万",
+      "author": "尚硅谷",
+      "url": "https://www.bilibili.com/video/BV1uK411H7on"
     },
     {
-      "title":"史上最牛的Linux视频教程—兄弟连",
-      "cover_url":"",
-      "date":"2018-1-10",
-      "view":"284.7万",
-      "favorite":"12.3万",
-      "author":"吾方羡_",
-      "url":"https://www.bilibili.com/video/BV1mW411i7Qf"
+      "title": "史上最牛的Linux视频教程—兄弟连",
+      "cover_url": "https://wx1.sinaimg.cn/mw1024/005QPr5Ngy1gtkwag4h5zj60ak06oq3102.jpg",
+      "date": "2018-1-10",
+      "view": "284.7万",
+      "favorite": "12.3万",
+      "author": "吾方羡_",
+      "url": "https://www.bilibili.com/video/BV1mW411i7Qf"
     },
     {
-      "title":"【装机教程】超详细WIN10系统安装教程，官方ISO直装与PE两种方法教程，UEFI+GUID分区与Legacy+MBR分区",
-      "cover_url":"",
-      "date":"2019-11-28",
-      "view":"435.8万",
-      "favorite":"29.7万",
-      "author":"硬件茶谈",
-      "url":"https://www.bilibili.com/video/BV1DJ411D79y"
+      "title": "【装机教程】超详细WIN10系统安装教程，官方ISO直装与PE两种方法教程，UEFI+GUID分区与Legacy+MBR分区",
+      "cover_url": "https://wx3.sinaimg.cn/mw1024/005QPr5Ngy1gtkwaft902j60ak06oweq02.jpg",
+      "date": "2019-11-28",
+      "view": "435.8万",
+      "favorite": "29.7万",
+      "author": "硬件茶谈",
+      "url": "https://www.bilibili.com/video/BV1DJ411D79y"
     },
     {
-      "title":"【干货】前端学习路线分享！写了个网站帮助你学习前端！",
-      "cover_url":"",
-      "date":"2020-6-30",
-      "view":"12.1万",
-      "favorite":"1.3万",
-      "author":"objtube的卢克儿",
-      "url":"https://www.bilibili.com/video/BV1ZZ4y1H7rU"
+      "title": "【干货】前端学习路线分享！写了个网站帮助你学习前端！",
+      "cover_url": "",
+      "date": "2020-6-30",
+      "view": "12.1万",
+      "favorite": "1.3万",
+      "author": "objtube的卢克儿",
+      "url": "https://www.bilibili.com/video/BV1ZZ4y1H7rU"
     },
     {
-      "title":"【麻省理工学院-中文字幕版】Python编程语言和计算机科学导论公开课，Python教程，现分享给大家！",
-      "cover_url":"",
-      "date":"4-7",
-      "view":"44.2万",
-      "favorite":"9.5万",
-      "author":"图灵学院教程",
-      "url":"https://www.bilibili.com/video/BV1ty4y1x7xP"
+      "title": "【麻省理工学院-中文字幕版】Python编程语言和计算机科学导论公开课，Python教程，现分享给大家！",
+      "cover_url": "https://wx3.sinaimg.cn/mw1024/005QPr5Ngy1gtkwafte4yj60ak06ot8y02.jpg",
+      "date": "4-7",
+      "view": "44.2万",
+      "favorite": "9.5万",
+      "author": "图灵学院教程",
+      "url": "https://www.bilibili.com/video/BV1ty4y1x7xP"
     },
     {
-      "title":"尚硅谷Web前端Promise教程从入门到精通（2021抢先版）",
-      "cover_url":"",
-      "date":"2020-11-20",
-      "view":"8万",
-      "favorite":"5160",
-      "author":"尚硅谷",
-      "url":"https://www.bilibili.com/video/BV1GA411x7z1"
+      "title": "尚硅谷Web前端Promise教程从入门到精通（2021抢先版）",
+      "cover_url": "https://wx4.sinaimg.cn/mw1024/005QPr5Ngy1gtkwafs6axj60ak06oweq02.jpg",
+      "date": "2020-11-20",
+      "view": "8万",
+      "favorite": "5160",
+      "author": "尚硅谷",
+      "url": "https://www.bilibili.com/video/BV1GA411x7z1"
     },
     {
-      "title":"尚硅谷最新版Webpack5实战教程(从入门到精通)",
-      "cover_url":"",
-      "date":"2020-2-19",
-      "view":"32.7万",
-      "favorite":"1.6万",
-      "author":"尚硅谷",
-      "url":"https://www.bilibili.com/video/BV1e7411j7T5"
-    },
-    {
-      "title":"",
-      "cover_url":"",
-      "date":"",
-      "view":"",
-      "favorite":"",
-      "author":"",
-      "url":""
-    },
-    {
-      "title":"",
-      "cover_url":"",
-      "date":"",
-      "view":"",
-      "favorite":"",
-      "author":"",
-      "url":""
-    },
-    {
-      "title":"",
-      "cover_url":"",
-      "date":"",
-      "view":"",
-      "favorite":"",
-      "author":"",
-      "url":""
-    },
-    {
-      "title":"",
-      "cover_url":"",
-      "date":"",
-      "view":"",
-      "favorite":"",
-      "author":"",
-      "url":""
+      "title": "尚硅谷最新版Webpack5实战教程(从入门到精通)",
+      "cover_url": "",
+      "date": "2020-2-19",
+      "view": "32.7万",
+      "favorite": "1.6万",
+      "author": "尚硅谷",
+      "url": "https://www.bilibili.com/video/BV1e7411j7T5"
     }
     
   ]
 }
-
-
-  
